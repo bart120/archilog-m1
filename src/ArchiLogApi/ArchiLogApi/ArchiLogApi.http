@@ -1,0 +1,6 @@
+@ArchiLogApi_HostAddress = http://localhost:5296
+
+GET {{ArchiLogApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
