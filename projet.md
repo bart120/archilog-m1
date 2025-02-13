@@ -119,7 +119,7 @@ Les horaires de passage sont définis pour chaque groupe.
 Toute absence à la soutenance entrainera un 0 (ZERO) pour le membre du groupe.
 
 Les rendus doivent figurer sur un seul compte par groupe.
-Le rendu s'effectu via un repos GIT ou SVN. L'adresse du rendu est envoyé par mail.
+Le rendu s'effectu via un repos GIT. L'adresse du rendu est envoyé par mail.
 Le mail de rendu est vincent.leclerc@ynov.com
 Les fichiers rendus doivent contenir
   - L'arborescence du projet, immédiatement exploitable après création des bases de données et exécution des migrations.
@@ -131,20 +131,22 @@ Pour tout autre type de fichier, veuillez demander à l'enseignant si son inclus
 La soutenance dure 20 minutes durant lesquelles les membres présentent leur travail. Un échange de questions peut se faire entre le professeur et les membres du groupe.
 
 Les groupes sont les suivants:
-- 
-- 
-- 
-- 
-- 
+- Thomas LEMAITRE, Luca MORGADO, Axel SENECAL
+- Cheikh Chouiref et Augustin Moquin
+- Aman MENDA et Charmeel VODOUHE
+- Pitot Gaultier, Fomat Gaetan, Cyrielle Ndongo Ngondi
+- Hanim Moussa Yari & Lienrol Tchecounnou
+- mohamed vall et dakhli siwar
 
 Les horaires de passage des groupes sont les suivants:
 
 
-- 14h00 => 
-- 14h30 => 
-- 15h00 => 
-- 15h30 => 
-- 16h00 =>
+- 14h00 => Thomas LEMAITRE, Luca MORGADO, Axel SENECAL
+- 14h30 => Cheikh Chouiref et Augustin Moquin
+- 15h00 => Aman MENDA et Charmeel VODOUHE
+- 15h30 => Pitot Gaultier, Fomat Gaetan, Cyrielle Ndongo Ngondi
+- 16h00 => Hanim Moussa Yari & Lienrol Tchecounnou
+- 16h30 => mohamed vall et dakhli siwar
 
 
 Pour ceux dont le groupe n'est pas dans la liste, contactez-moi très rapidement à vincent.leclerc@ynov.com
