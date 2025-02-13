@@ -7,26 +7,19 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ArchiLogApi.Data;
 using ArchiLogApi.Models;
+using ApiClassLibrary.Controllers;
 
 namespace ArchiLogApi.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class ReservationsController : ControllerBase
+    
+    public class ReservationsController : BaseController<ArchiLogDbContext, Reservation>
     {
-        private readonly ArchiLogDbContext _context;
+        
 
-        public ReservationsController(ArchiLogDbContext context)
-        {
-            _context = context;
+        public ReservationsController(ArchiLogDbContext context) : base(context)
+        {        
         }
 
-        // GET: api/Reservations
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Reservation>>> GetReservations()
-        {
-            return await _context.Reservations.ToListAsync();
-        }
 
         // GET: api/Reservations/5
         [HttpGet("{id}")]

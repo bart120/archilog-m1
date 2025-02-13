@@ -7,26 +7,21 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ArchiLogApi.Data;
 using ArchiLogApi.Models;
+using ApiClassLibrary.Controllers;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace ArchiLogApi.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class CarsController : ControllerBase
+    
+    public class CarsController : BaseController<ArchiLogDbContext, Car>
     {
-        private readonly ArchiLogDbContext _context;
+        
 
-        public CarsController(ArchiLogDbContext context)
+        public CarsController(ArchiLogDbContext context):base(context)
         {
-            _context = context;
         }
 
-        // GET: api/Cars
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Car>>> GetCars()
-        {
-            return await _context.Cars.Where(car => car.Deleted == false).ToListAsync();
-        }
+        
 
         // GET: api/Cars/5
         [HttpGet("{id}")]
@@ -42,7 +37,6 @@ namespace ArchiLogApi.Controllers
             {
                 return NotFound();
             }
-
             return car;
         }
 
@@ -103,8 +97,6 @@ namespace ArchiLogApi.Controllers
             }
 
             _context.Cars.Remove(car);
-            //car.Deleted = true;
-            //_context.Cars.Update(car);
             await _context.SaveChangesAsync();
 
             return NoContent();
