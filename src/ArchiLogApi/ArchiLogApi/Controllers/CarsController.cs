@@ -15,10 +15,8 @@ namespace ArchiLogApi.Controllers
     
     public class CarsController : BaseController<ArchiLogDbContext, Car>
     {
-        
-
         public CarsController(ArchiLogDbContext context):base(context)
         {
-        }        
+        }
     }
 }

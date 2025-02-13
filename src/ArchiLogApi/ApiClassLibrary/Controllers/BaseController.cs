@@ -24,14 +24,14 @@ namespace ApiClassLibrary.Controllers
 
         // GET: api/[Models]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TModel>>> GetAll()
+        public virtual async Task<ActionResult<IEnumerable<TModel>>> GetAll()
         {
             return await _context.Set<TModel>().Where(x => x.Deleted == false).ToListAsync();
         }
 
         // GET: api/[Models]/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<TModel>> GetById(int id)
+        public virtual async Task<ActionResult<TModel>> GetById(int id)
         {
             var model = await _context.Set<TModel>().FindAsync(id);
 
@@ -49,7 +49,7 @@ namespace ApiClassLibrary.Controllers
         // PUT: api/[Models]/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, TModel model)
+        public virtual async Task<IActionResult> Put(int id, TModel model)
         {
             if (id != model.ID)
             {
@@ -80,7 +80,7 @@ namespace ApiClassLibrary.Controllers
         // POST: api/[Models]
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<TModel>> Post(TModel model)
+        public virtual async Task<ActionResult<TModel>> Post(TModel model)
         {
             _context.Set<TModel>().Add(model);
             await _context.SaveChangesAsync();
@@ -90,7 +90,7 @@ namespace ApiClassLibrary.Controllers
 
         // DELETE: api/[Models]/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public virtual async Task<IActionResult> Delete(int id)
         {
             var car = await _context.Set<TModel>().FindAsync(id);
             if (car == null)
