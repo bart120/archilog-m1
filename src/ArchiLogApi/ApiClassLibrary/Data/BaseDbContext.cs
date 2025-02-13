@@ -8,12 +8,20 @@ using System.Threading.Tasks;
 
 namespace ApiClassLibrary.Data
 {
+    /// <summary>
+    /// Class abstraite (qui doit être héritée) qui permet d'ajouter les fonctions de suppression, ajout et mise à jour personnalisées pour les DbContext enfants.
+    /// </summary>
     public abstract class BaseDbContext : DbContext
     {
         public BaseDbContext(DbContextOptions options) : base(options)
         {
         }
 
+        /// <summary>
+        /// override de la méthode SaveChangesAsync, qui permet d'ajouter des fonctions avant l'appel de la méthode d'origine
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             ChangeAddedState();
@@ -31,6 +39,11 @@ namespace ApiClassLibrary.Data
             return base.SaveChanges();
         }
 
+        /// <summary>
+        /// Recherche les entitees avec l'état à Deleted et modifie la valeur du champ Deleted à true et change l'état en Modified 
+        /// afin de ne pas avoir de suppression phisyque en bdd.
+        /// Uniquement pour les entitées de type (qui hérite de) BaseModel.
+        /// </summary>
         private void ChangeDeletedState()
         {
             var deleteEntities = ChangeTracker.Entries().Where(x => x.State == EntityState.Deleted);

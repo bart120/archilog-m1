@@ -11,6 +11,11 @@ using System.Threading.Tasks;
 
 namespace ApiClassLibrary.Controllers
 {
+    /// <summary>
+    /// Class abstraite (qui doit être héritée) qui permet d'inclure les fonctions de CRUD pour les controlleurs enfants.
+    /// </summary>
+    /// <typeparam name="TContext">Type générique, qui sera le type du DbContext du controlleur enfant</typeparam>
+    /// <typeparam name="TModel">Type générique, qui sera le type du BaseModel du controlleur enfant</typeparam>
     [Route("api/[controller]")]
     [ApiController]
     public abstract class BaseController<TContext, TModel> : ControllerBase where TContext : BaseDbContext where TModel : BaseModel
@@ -26,6 +31,7 @@ namespace ApiClassLibrary.Controllers
         [HttpGet]
         public virtual async Task<ActionResult<IEnumerable<TModel>>> GetAll()
         {
+            //Set<TModel>() permet de récupérer le DBSet<Model> du DbContext afin de pourvoir requéter
             return await _context.Set<TModel>().Where(x => x.Deleted == false).ToListAsync();
         }
 

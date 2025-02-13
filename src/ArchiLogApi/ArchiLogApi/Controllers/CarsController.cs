@@ -12,7 +12,9 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace ArchiLogApi.Controllers
 {
-    
+    /// <summary>
+    /// Controlleur pour les voitures, le CRUD est implémenté dans la class mère BaseController
+    /// </summary>
     public class CarsController : BaseController<ArchiLogDbContext, Car>
     {
         public CarsController(ArchiLogDbContext context):base(context)
