@@ -1,9 +1,10 @@
-﻿using ArchiLogApi.Models;
+﻿using ApiClassLibrary.Data;
+using ArchiLogApi.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace ArchiLogApi.Data
 {
-    public class ArchiLogDbContext:DbContext
+    public class ArchiLogDbContext:BaseDbContext
     {
         public ArchiLogDbContext(DbContextOptions options):base(options)
         {
