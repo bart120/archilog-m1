@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ApiClassLibrary.Data
 {
-    public class BaseDbContext : DbContext
+    public abstract class BaseDbContext : DbContext
     {
         public BaseDbContext(DbContextOptions options) : base(options)
         {
