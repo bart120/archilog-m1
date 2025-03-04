@@ -9,6 +9,7 @@ using ArchiLogApi.Data;
 using ArchiLogApi.Models;
 using ApiClassLibrary.Controllers;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using ApiClassLibrary.Extensions;
 
 namespace ArchiLogApi.Controllers
 {
@@ -19,6 +20,12 @@ namespace ArchiLogApi.Controllers
     {
         public CarsController(ArchiLogDbContext context):base(context)
         {
+        }
+
+        public override async Task<ActionResult<IEnumerable<Car>>> GetAll()
+        {
+            var list2 = await  _context.Cars.Where(x => !x.Deleted).Sort("Modele").ToListAsync();
+            return list2;
         }
     }
 }
