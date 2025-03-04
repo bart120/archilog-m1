@@ -24,8 +24,15 @@ namespace ArchiLogApi.Controllers
 
         public override async Task<ActionResult<IEnumerable<Car>>> GetAll()
         {
+            /*unsafe
+            {
+                var prenom = "bob";
+                int* i = 0;
+            }*/
             var list2 = await  _context.Cars.Where(x => !x.Deleted).Sort("Modele").ToListAsync();
             return list2;
         }
+
+        
     }
 }
